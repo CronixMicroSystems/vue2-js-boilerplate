@@ -7,7 +7,7 @@ const GET_USER_INFORM = 'GET_USER_INFORM'
 
 export default {
   [GET_DATA] (state, payload) {
-    if (payload.res.httpStatusCode == 200) {
+    if (payload.res.httpStatusCode === 200) {
       state.itemDetail = payload.res.topiclist
     }
   },

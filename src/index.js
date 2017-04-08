@@ -1,17 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import routes from './router/router'
-import store from './store/'
+import * as App from './containers/app.vue'
 import './style/common'
 import './config/rem'
 
-Vue.use(VueRouter)
-const router = new VueRouter({
-  mode: 'history',
-  routes
-})
+const VueMaterial = require('vue-material')
 
-new Vue({
-  router,
-  store
-}).$mount('#root')
+Vue.use(VueRouter)
+Vue.use(VueMaterial)
+
+// const router = new VueRouter({
+//   mode: 'history',
+//   routes
+// })
+
+Vue.material.registerTheme({
+  default: {
+    primary: 'blue',
+    accent: 'red'
+  },
+  green: {
+    primary: 'green',
+    accent: 'pink'
+  },
+  orange: {
+    primary: 'orange',
+    accent: 'green'
+  }
+})
+new Vue(App).$mount('#root')
