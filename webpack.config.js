@@ -1,13 +1,11 @@
 const webpack = require('webpack')
 const HappyPack = require('happypack')
 const path = require('path')
-// const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const sourcePath = path.join(__dirname, './src')
 const staticsPath = path.join(__dirname, './static')
 
 module.exports = function () {
-
   const nodeEnv = process.env.NODE_ENV ? 'production' : 'development'
   const isProd = nodeEnv === 'production'
 
@@ -38,10 +36,6 @@ module.exports = function () {
       id: 'js',
       threads: 2,
       loaders: ['babel-loader?cacheDirectory']
-    }),
-    new webpack.DllReferencePlugin({
-      context: path.join(__dirname, 'dll'),
-      manifest: require('./dll/vendor_libs-manifest.json')
     })
   ]
   let methods = []
